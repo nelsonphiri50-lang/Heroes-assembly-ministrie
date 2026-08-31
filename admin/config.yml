@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: nelsonphiri50-lang/nelsonphiri50-lang.github.io
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+    - name: "books"
+    label: "Books"
+    folder: "books"
+    create: true
+    fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Description", name: "body", widget: "markdown"}
+    - name: "songs"
+    label: "Songs"
+    folder: "songs"
+    create: true
+    fields:
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Audio", name: "audio", widget: "file"}
