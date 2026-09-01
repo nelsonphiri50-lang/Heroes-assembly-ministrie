@@ -51,37 +51,146 @@ Error generating stack: `+u.message+`
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
-<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><!-- HEROES ADMIN INJECTION -->
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><!-- HEROES ADMIN INJECTION V2 - DIRECT FILE UPLOAD -->
 <style>
-#hAdminBtn{position:fixed;bottom:14px;right:14px;width:48px;height:48px;border-radius:50%;background:#111;border:1px solid #333;color:#facc15;font-size:22px;z-index:9999}
-#hAdminModal{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:10000;display:none;align-items:center;justify-content:center;padding:12px}
+#hAdminBtn{position:fixed;bottom:14px;right:14px;width:48px;height:48px;border-radius:50%;background:#111;border:1px solid #333;color:#facc15;font-size:22px;z-index:9999;display:flex;align-items:center;justify-content:center}
+#hAdminModal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;display:none;align-items:center;justify-content:center;padding:12px;overflow:auto}
 #hAdminModal.open{display:flex}
-.hBox{background:#111;border:1px solid #333;border-radius:16px;max-width:500px;width:100%;padding:14px}
+.hBox{background:#111;border:1px solid #333;border-radius:16px;max-width:520px;width:100%;padding:14px;max-height:90vh;overflow:auto}
 .hBox input,.hBox select,.hBox textarea{width:100%;padding:10px;border-radius:9px;border:1px solid #333;background:#000;color:#fff;margin:5px 0}
-.hTab{padding:6px 12px;border-radius:18px;background:#222;border:1px solid #333;margin:2px;display:inline-block;cursor:pointer;font-size:12px}
-.hTab.active{background:#facc15;color:#000}
+.hFileLabel{display:block;background:#1e1e1e;border:1px dashed #facc15;padding:12px;border-radius:10px;text-align:center;color:#facc15;margin:6px 0;cursor:pointer;font-weight:700}
+.hFileLabel small{display:block;color:#888;font-weight:400;margin-top:4px}
+.hPreview{margin:8px 0;max-height:150px;overflow:hidden;border-radius:10px;background:#000;display:none}
+.hPreview img{width:100%;height:140px;object-fit:cover}
 </style>
 <button id="hAdminBtn" onclick="document.getElementById('hAdminModal').classList.add('open')">⚙️</button>
 <div id="hAdminModal">
 <div class="hBox">
-<div style="display:flex;justify-content:space-between"><h3 style="color:#facc15">Admin</h3><button onclick="this.closest('#hAdminModal').classList.remove('open')" style="background:#222;color:#fff;border:0;padding:6px 10px;border-radius:8px">✕</button></div>
-<div id="hLogin"><p style="color:#888;font-size:12px">Password: heroes2025</p><input id="hPwd" type="password" placeholder="Password"><button onclick="if(document.getElementById('hPwd').value==='heroes2025'){localStorage.setItem('hauth','1');location.reload()}else alert('Wrong')" style="width:100%;background:#facc15;color:#000;padding:10px;border:0;border-radius:9px;font-weight:900;margin-top:6px">Login</button></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="color:#facc15">Admin • Direct Upload</h3><button onclick="this.closest('#hAdminModal').classList.remove('open')" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:8px">✕</button></div>
+<div id="hLogin"><p style="color:#888;font-size:12px">Password: heroes2025</p><input id="hPwd" type="password" placeholder="Password"><button onclick="if(document.getElementById('hPwd').value==='heroes2025'){localStorage.setItem('hauth','1');document.getElementById('hLogin').style.display='none';document.getElementById('hDash').style.display='block';hRender()}else alert('Wrong')" style="width:100%;background:#facc15;color:#000;padding:10px;border:0;border-radius:9px;font-weight:900;margin-top:6px">Login</button></div>
 <div id="hDash" style="display:none">
-<select id="hType"><option value="announcement">📢 Announcement</option><option value="sermon">📖 Sermon</option><option value="book">📚 Book</option><option value="video">🎥 Video</option><option value="photo">📸 Photo</option><option value="event">📅 Event</option><option value="song">🎵 Song</option></select>
-<input id="hTitle" placeholder="Title *"><textarea id="hDesc" rows="2" placeholder="Description"></textarea><input id="hImg" placeholder="Image URL"><input id="hVideo" placeholder="YouTube / Audio link"><input id="hDate" type="date">
-<button onclick="hAdd()" style="width:100%;background:#facc15;color:#000;padding:11px;border:0;border-radius:9px;font-weight:900">+ Save</button>
-<button onclick="hExport()" style="width:100%;background:#22c55e;color:#000;padding:10px;border:0;border-radius:9px;font-weight:800;margin-top:6px">Export data.json</button>
-<div id="hList" style="max-height:200px;overflow:auto;margin-top:10px"></div>
+<p style="color:#22c55e;font-size:11px;margin:6px 0">✅ NEW: Pick files directly from phone — no links!</p>
+<select id="hType" onchange="hOnTypeChange()"><option value="announcement">📢 Announcement</option><option value="sermon">📖 Sermon</option><option value="book">📚 Book</option><option value="video">🎥 Video</option><option value="photo">📸 Photo</option><option value="event">📅 Event</option><option value="song">🎵 Song</option></select>
+<input id="hTitle" placeholder="Title *">
+<textarea id="hDesc" rows="2" placeholder="Description / Details"></textarea>
+
+<label class="hFileLabel" for="hFileInput">
+📁 TAP TO CHOOSE FILE FROM PHONE
+<small id="hFileName">Supports: JPG, PNG, PDF, MP3, MP4, any file</small>
+</label>
+<input type="file" id="hFileInput" accept="image/*,audio/*,video/*,.pdf,.doc,.docx" style="display:none" onchange="hHandleFile(this)">
+
+<div id="hPreview" class="hPreview"></div>
+
+<input id="hImg" placeholder="Image will appear here (auto)" style="display:none">
+<input id="hVideo" placeholder="File link will appear here (auto)" style="display:none">
+<input id="hDate" type="date" style="margin-top:8px">
+
+<button onclick="hAdd()" style="width:100%;background:#facc15;color:#000;padding:12px;border:0;border-radius:10px;font-weight:900;margin-top:8px">+ SAVE TO WEBSITE</button>
+<button onclick="hExport()" style="width:100%;background:#22c55e;color:#000;padding:10px;border:0;border-radius:9px;font-weight:800;margin-top:6px">Export data.json (for all visitors)</button>
+<div style="background:#0f0f0f;border:1px dashed #333;padding:8px;border-radius:10px;margin-top:8px"><p style="font-size:11px;color:#888">💾 Your files are saved on this phone. To show to EVERYONE:<br>1. Export data.json<br>2. Upload data.json to GitHub root<br>3. ALSO upload original files to GitHub via Add file > Upload files</p></div>
+<div id="hList" style="max-height:200px;overflow:auto;margin-top:12px;border-top:1px solid #222;padding-top:8px"></div>
 </div>
 </div>
 </div>
 <script>
+var hCurrentFileData='';
+function hOnTypeChange(){
+ var t=document.getElementById('hType').value;
+ var fi=document.getElementById('hFileInput');
+ if(t==='photo') fi.accept='image/*';
+ else if(t==='song') fi.accept='audio/*,.mp3';
+ else if(t==='video') fi.accept='video/*,.mp4';
+ else if(t==='book') fi.accept='.pdf,image/*';
+ else fi.accept='image/*,audio/*,video/*,.pdf';
+}
+function hHandleFile(input){
+ var file=input.files[0];
+ if(!file) return;
+ document.getElementById('hFileName').textContent=file.name+' ('+Math.round(file.size/1024)+' KB)';
+ var reader=new FileReader();
+ reader.onload=function(e){
+   hCurrentFileData=e.target.result;
+   var preview=document.getElementById('hPreview');
+   preview.style.display='block';
+   if(file.type.startsWith('image/')){
+     preview.innerHTML='<img src="'+hCurrentFileData+'"><p style="color:#22c55e;font-size:11px;padding:6px">✅ Image ready!</p>';
+     document.getElementById('hImg').value=hCurrentFileData;
+     document.getElementById('hVideo').value='';
+     if(!document.getElementById('hTitle').value) document.getElementById('hTitle').value=file.name.replace(/\.[^/.]+$/,'');
+   }else if(file.type.startsWith('audio/')){
+     preview.innerHTML='<div style="padding:20px;text-align:center"><span style="font-size:40px">🎵</span><p style="color:#fff">'+file.name+'</p><audio controls src="'+hCurrentFileData+'" style="width:100%;margin-top:8px"></audio><p style="color:#22c55e;font-size:11px">✅ Audio ready!</p></div>';
+     document.getElementById('hVideo').value=hCurrentFileData;
+     document.getElementById('hImg').value='';
+   }else if(file.type.startsWith('video/')){
+     preview.innerHTML='<div style="padding:10px"><video controls src="'+hCurrentFileData+'" style="width:100%;border-radius:8px;max-height:120px"></video><p style="color:#22c55e;font-size:11px">✅ Video ready!</p></div>';
+     document.getElementById('hVideo').value=hCurrentFileData;
+   }else{
+     // PDF or other
+     preview.innerHTML='<div style="padding:20px;text-align:center"><span style="font-size:40px">📚</span><p style="color:#fff">'+file.name+'</p><p style="color:#22c55e;font-size:11px">✅ File ready! ('+file.type+')</p><a href="'+hCurrentFileData+'" target="_blank" style="color:#facc15;font-size:12px">Preview file</a></div>';
+     document.getElementById('hVideo').value=hCurrentFileData;
+     document.getElementById('hImg').value='';
+     if(file.type.includes('pdf') && !document.getElementById('hImg').value){
+       // try to keep as video field for download
+     }
+   }
+ };
+ if(file.size>5*1024*1024){
+   alert('File too big! >5MB will make website slow. Please use smaller file or compress. For large files, upload to GitHub directly.');
+   return;
+ }
+ reader.readAsDataURL(file);
+}
 function hGet(){try{return JSON.parse(localStorage.getItem('hdata')||'[]')}catch(e){return[]}}
-function hSet(d){localStorage.setItem('hdata',JSON.stringify(d))}
-function hAdd(){var t=document.getElementById('hTitle').value.trim();if(!t)return alert('Title');var o={id:Date.now(),type:document.getElementById('hType').value,title:t,desc:document.getElementById('hDesc').value,img:document.getElementById('hImg').value,video:document.getElementById('hVideo').value,date:document.getElementById('hDate').value||new Date().toISOString().split('T')[0]};var d=hGet();d.unshift(o);hSet(d);hRender();alert('Saved! Export data.json then upload to GitHub root');document.getElementById('hTitle').value=''}
-function hRender(){var d=hGet();document.getElementById('hList').innerHTML=d.map(function(x){return '<div style=display:flex;justify-content:space-between;padding:6px;border-bottom:1px solid #222><span><b>'+x.title+'</b><br><small style=color:#666>'+x.type+'</small></span><button onclick="var a=hGet().filter(function(y){return y.id!=='+x.id+'});hSet(a);hRender()" style=background:#7f1d1d;color:#fff;border:0;padding:4px 8px;border-radius:6px>Del</button></div>'}).join('')}
-function hExport(){var b=new Blob([localStorage.getItem('hdata')||'[]'],{type:'application/json'});var u=URL.createObjectURL(b);var a=document.createElement('a');a.href=u;a.download='data.json';a.click()}
-if(localStorage.getItem('hauth')){document.getElementById('hLogin').style.display='none';document.getElementById('hDash').style.display='block';hRender()}
+function hSet(d){localStorage.setItem('hdata',JSON.stringify(d));}
+function hAdd(){
+ var t=document.getElementById('hTitle').value.trim();
+ if(!t) return alert('Title required');
+ var item={
+   id:Date.now(),
+   type:document.getElementById('hType').value,
+   title:t,
+   desc:document.getElementById('hDesc').value.trim(),
+   img:document.getElementById('hImg').value.trim(),
+   video:document.getElementById('hVideo').value.trim(),
+   date:document.getElementById('hDate').value||new Date().toISOString().split('T')[0]
+ };
+ // if file data was loaded and no img/video yet, use it
+ if(hCurrentFileData){
+   if(!item.img && !item.video){
+     if(item.type==='photo' || hCurrentFileData.startsWith('data:image')) item.img=hCurrentFileData;
+     else item.video=hCurrentFileData;
+   }
+ }
+ var d=hGet();d.unshift(item);hSet(d);hRender();
+ document.getElementById('hTitle').value='';document.getElementById('hDesc').value='';document.getElementById('hFileName').textContent='Supports: JPG, PNG, PDF, MP3, MP4, any file';document.getElementById('hPreview').style.display='none';document.getElementById('hPreview').innerHTML='';hCurrentFileData='';document.getElementById('hFileInput').value='';document.getElementById('hImg').value='';document.getElementById('hVideo').value='';
+ alert('✅ Saved! Check main page — it appears instantly on YOUR phone. Export data.json to show to everyone.');
+ if(window.renderPublic) renderPublic();
+}
+function hRender(){
+ var d=hGet();
+ var list=document.getElementById('hList');
+ if(!d.length){list.innerHTML='<p style="color:#555;text-align:center;padding:10px">No items yet</p>';return}
+ list.innerHTML=d.map(function(x){
+   var thumb=x.img?'<img src="'+x.img+'" style="width:36px;height:36px;border-radius:6px;object-fit:cover">':(x.type==='song'?'🎵':x.type==='book'?'📚':x.type==='video'?'🎥':'📄');
+   return '<div style="display:flex;gap:8px;align-items:center;padding:8px;border-bottom:1px solid #222"><div>'+thumb+'</div><div style="flex:1"><b style="font-size:13px;color:#fff">'+x.title+'</b><br><small style="color:#666">'+x.type+' • '+x.date+'</small></div><button onclick="var a=hGet().filter(function(y){return y.id!=='+x.id+'});hSet(a);hRender();if(window.renderPublic)renderPublic()" style="background:#7f1d1d;color:#fff;border:0;padding:5px 10px;border-radius:6px">Del</button></div>';
+ }).join('');
+}
+function hExport(){
+ var data=localStorage.getItem('hdata')||'[]';
+ // warn if big
+ if(data.length>2*1024*1024) alert('⚠️ data.json is large ('+Math.round(data.length/1024/1024)+' MB) because it contains files. For big files, better upload files to GitHub separately and use links.');
+ var blob=new Blob([data],{type:'application/json'});
+ var url=URL.createObjectURL(blob);
+ var a=document.createElement('a');a.href=url;a.download='data.json';a.click();
+}
+if(localStorage.getItem('hauth')){
+ document.getElementById('hLogin').style.display='none';
+ document.getElementById('hDash').style.display='block';
+ hRender();
+}
 </script>
-<!-- END ADMIN INJECTION --></body>
+<!-- END ADMIN INJECTION V2 -->
+
+</body>
 </html>
