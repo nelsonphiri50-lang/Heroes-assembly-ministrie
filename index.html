@@ -51,62 +51,202 @@ Error generating stack: `+u.message+`
 </script>
   <script>(function(){function m(a){var h=a.getAttribute("href");if(!h)return;try{var u=new URL(h,document.baseURI);if((u.protocol==="http:"||u.protocol==="https:")&&u.host!==location.host){a.target="_blank";a.rel="noopener noreferrer";}}catch(e){}}function s(){document.querySelectorAll("a[href]").forEach(m);}if(document.readyState!=="loading"){s();}else{document.addEventListener("DOMContentLoaded",s);}document.addEventListener("click",function(e){var a=e.target&&e.target.closest&&e.target.closest("a[href]");if(a){m(a);}},true);})();</script>
   
-<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><!-- HEROES ADMIN INJECTION V2 - DIRECT FILE UPLOAD -->
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script><!-- HEROES COMPLETE CMS - ALL TYPES -->
 <style>
-#hAdminBtn{position:fixed;bottom:14px;right:14px;width:48px;height:48px;border-radius:50%;background:#111;border:1px solid #333;color:#facc15;font-size:22px;z-index:9999;display:flex;align-items:center;justify-content:center}
-#hAdminModal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;display:none;align-items:center;justify-content:center;padding:12px;overflow:auto}
+#heroesAllCMS{max-width:1100px;margin:20px auto;padding:12px}
+#heroesAllCMS h2{color:#0A1931;text-align:center;margin:28px 0 12px;font-size:26px;font-weight:900}
+.hFilterRow{text-align:center;margin:10px 0 18px}
+.hTab{padding:7px 14px;border-radius:20px;background:#fff;border:1px solid #ddd;margin:3px;display:inline-block;cursor:pointer;font-size:13px;font-weight:700}
+.hTab.active{background:#0A1931;color:#C9A227;border-color:#0A1931}
+.hGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+.hCard{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.hCard img{width:100%;height:160px;object-fit:cover;border-radius:12px;background:#f3f4f6}
+.hCard h4{margin:8px 0 4px;font-size:14px;color:#0A1931;line-height:1.2}
+.hCard p{font-size:11px;color:#6b7280;line-height:1.3}
+.hBadge{background:#0A1931;color:#C9A227;font-size:10px;padding:3px 8px;border-radius:10px;font-weight:800}
+.hEmpty{grid-column:1/-1;text-align:center;padding:30px;color:#9ca3af;background:#f9fafb;border-radius:16px;border:1px dashed #ddd}
+/* ADMIN */
+#hAdminBtn{position:fixed;bottom:16px;right:16px;width:52px;height:52px;border-radius:50%;background:#0A1931;border:2px solid #C9A227;color:#C9A227;font-size:24px;z-index:99999;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,.3)}
+#hAdminModal{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100000;display:none;align-items:center;justify-content:center;padding:12px;overflow:auto}
 #hAdminModal.open{display:flex}
-.hBox{background:#111;border:1px solid #333;border-radius:16px;max-width:520px;width:100%;padding:14px;max-height:90vh;overflow:auto}
-.hBox input,.hBox select,.hBox textarea{width:100%;padding:10px;border-radius:9px;border:1px solid #333;background:#000;color:#fff;margin:5px 0}
-.hFileLabel{display:block;background:#1e1e1e;border:1px dashed #facc15;padding:12px;border-radius:10px;text-align:center;color:#facc15;margin:6px 0;cursor:pointer;font-weight:700}
-.hFileLabel small{display:block;color:#888;font-weight:400;margin-top:4px}
-.hPreview{margin:8px 0;max-height:150px;overflow:hidden;border-radius:10px;background:#000;display:none}
-.hPreview img{width:100%;height:140px;object-fit:cover}
+.hBox{background:#111;border:1px solid #333;border-radius:16px;max-width:540px;width:100%;padding:14px;max-height:92vh;overflow:auto}
+.hBox input,.hBox select,.hBox textarea{width:100%;padding:11px;border-radius:10px;border:1px solid #333;background:#000;color:#fff;margin:5px 0;font-size:14px}
+.hFileLabel{display:block;background:#1e1e1e;border:1px dashed #C9A227;padding:14px;border-radius:12px;text-align:center;color:#C9A227;margin:8px 0;cursor:pointer;font-weight:800}
+.hFileLabel small{display:block;color:#888;font-weight:400;margin-top:4px;font-size:11px}
+.hPreview{margin:8px 0;max-height:180px;overflow:hidden;border-radius:12px;background:#000;display:none}
+.hPreview img{width:100%;height:160px;object-fit:cover}
 </style>
+
+<!-- PUBLIC SECTION FOR ALL TYPES -->
+<section id="heroesAllCMS">
+<h2>Latest from Heroes</h2>
+<div class="hFilterRow" id="hFilterRow">
+<button onclick="hSetFilter('all',this)" class="hTab active">All</button>
+<button onclick="hSetFilter('photo',this)" class="hTab">📸 Photos</button>
+<button onclick="hSetFilter('book',this)" class="hTab">📚 Books</button>
+<button onclick="hSetFilter('video',this)" class="hTab">🎥 Videos</button>
+<button onclick="hSetFilter('song',this)" class="hTab">🎵 Songs</button>
+<button onclick="hSetFilter('sermon',this)" class="hTab">📖 Sermons</button>
+<button onclick="hSetFilter('event',this)" class="hTab">📅 Events</button>
+<button onclick="hSetFilter('announcement',this)" class="hTab">📢 News</button>
+</div>
+<div id="hAllGrid" class="hGrid"></div>
+</section>
+
+<script>
+// ===== CORE DATA =====
+var hFilter='all';
+var hRemote=[];
+function hGet(){try{return JSON.parse(localStorage.getItem('hdata')||'[]')}catch(e){return[]}}
+function hGetAll(){
+  var local=hGet();
+  if(!hRemote.length) return local;
+  if(!local.length) return hRemote;
+  var ids=local.map(d=>d.id);
+  var merged=local.slice();
+  hRemote.forEach(r=>{if(ids.indexOf(r.id)===-1) merged.push(r)});
+  return merged;
+}
+function hSetFilter(type,el){
+  hFilter=type;
+  document.querySelectorAll('#hFilterRow .hTab').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  hRenderAll();
+}
+function hRenderAll(){
+  var data=hGetAll();
+  var filtered=hFilter==='all'?data:data.filter(d=>d.type===hFilter);
+  var grid=document.getElementById('hAllGrid');
+  if(!grid) return;
+  if(!filtered.length){
+    grid.innerHTML='<div class="hEmpty">No '+hFilter+' yet.<br>Tap ⚙️ bottom right to add '+hFilter+' from phone!</div>';
+    return;
+  }
+  grid.innerHTML=filtered.map(x=>{
+    var img='';
+    if(x.img){
+      img='<img src="'+x.img+'" onerror="this.style.display=\'none\'">';
+    }else if(x.type==='video' && x.video){
+      var m=x.video.match(/(?:v=|be\/|embed\/)([^&?/]+)/);
+      if(m) img='<img src="https://img.youtube.com/vi/'+m[1]+'/mqdefault.jpg">';
+    }
+    var media='';
+    if(x.type==='video' && x.video){
+      if(x.video.startsWith('data:video')){
+        media='<video controls src="'+x.video+'" style="width:100%;border-radius:10px;margin-top:8px;max-height:180px"></video>';
+      }else{
+        var id=x.video.match(/(?:v=|be\/|embed\/)([^&?/]+)/);
+        if(id) media='<div style="position:relative;padding-bottom:56%;height:0;margin-top:8px"><iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:10px" src="https://www.youtube.com/embed/'+id[1]+'" allowfullscreen></iframe></div>';
+        else if(x.video) media='<a href="'+x.video+'" target="_blank" style="color:#0A1931;font-size:12px;display:block;margin-top:6px;font-weight:700">▶️ Watch Video</a>';
+      }
+    }
+    if(x.type==='song' && x.video){
+      if(x.video.startsWith('data:audio')){
+        media='<audio controls src="'+x.video+'" style="width:100%;margin-top:8px"></audio>';
+      }else{
+        media='<a href="'+x.video+'" target="_blank" style="color:#0A1931;font-size:12px;display:block;margin-top:6px;font-weight:700">🎵 Play / Download Song</a>';
+      }
+    }
+    if(x.type==='book' && x.video){
+      if(x.video.startsWith('data:application')){
+        media='<a href="'+x.video+'" download="'+x.title+'.pdf" style="background:#0A1931;color:#C9A227;padding:6px 12px;border-radius:20px;font-size:11px;display:inline-block;margin-top:8px;font-weight:800;text-decoration:none">📚 Download PDF</a>';
+      }else if(x.video){
+        media='<a href="'+x.video+'" target="_blank" style="color:#0A1931;font-size:12px;display:block;margin-top:6px;font-weight:700">📚 Read / Download Book</a>';
+      }
+    }
+    return '<div class="hCard">'+img+'<div style="margin-top:6px"><span class="hBadge">'+x.type+'</span> <small style="color:#9ca3af;font-size:10px">'+(x.date||'')+'</small></div><h4>'+x.title+'</h4><p>'+(x.desc||'')+'</p>'+media+'</div>';
+  }).join('');
+
+  // ALSO PATCH ORIGINAL SITE SECTIONS
+  patchOriginalGallery(data);
+}
+function patchOriginalGallery(allData){
+  // Find PHOTOS — GALLERY section and replace its placeholders
+  try{
+    var headings = Array.from(document.querySelectorAll('h1,h2,h3'));
+    var photoHead = headings.find(h=>h.textContent.includes('PHOTOS') && h.textContent.includes('GALLERY'));
+    if(photoHead){
+      var photos = allData.filter(d=>d.type==='photo');
+      if(photos.length>0){
+        // Find the grid container after heading (usually next sibling with grid)
+        var parent = photoHead.parentElement;
+        var grids = parent.querySelectorAll('div');
+        // Look for div that contains the 8 shield images
+        for(var i=0;i<grids.length;i++){
+          var g=grids[i];
+          if(g.innerHTML.includes('shield') || g.children.length>=4){
+            // Replace only if it looks like placeholder gallery
+            if(g.querySelectorAll('img').length>=4){
+              g.innerHTML = photos.map(x=>'<div style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);aspect-ratio:1"><img src="'+x.img+'" style="width:100%;height:100%;object-fit:cover"><div style="padding:6px;background:#fff"><b style="font-size:11px;color:#0A1931">'+x.title+'</b></div></div>').join('');
+              g.style.display='grid';
+              g.style.gridTemplateColumns='1fr 1fr';
+              g.style.gap='12px';
+              break;
+            }
+          }
+        }
+      }
+    }
+    // Similarly patch BOOKS, SONGS etc if those sections exist
+    var bookHead = headings.find(h=>h.textContent.toUpperCase().includes('BOOK'));
+    if(bookHead){
+      var books = allData.filter(d=>d.type==='book');
+      if(books.length>0){
+        var container = bookHead.parentElement;
+        var existingGrid = container.querySelector('.grid') || container.children[1];
+        if(existingGrid){
+          // keep but we will add after
+        }
+      }
+    }
+  }catch(e){console.log('patch error',e)}
+}
+// Load data.json for all visitors
+fetch('data.json?v='+Date.now()).then(r=>r.json()).then(j=>{hRemote=j;hRenderAll()}).catch(()=>{});
+setTimeout(hRenderAll,800);
+setInterval(hRenderAll,2500);
+</script>
+
+<!-- ADMIN MODAL -->
 <button id="hAdminBtn" onclick="document.getElementById('hAdminModal').classList.add('open')">⚙️</button>
 <div id="hAdminModal">
 <div class="hBox">
-<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="color:#facc15">Admin • Direct Upload</h3><button onclick="this.closest('#hAdminModal').classList.remove('open')" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:8px">✕</button></div>
-<div id="hLogin"><p style="color:#888;font-size:12px">Password: heroes2025</p><input id="hPwd" type="password" placeholder="Password"><button onclick="if(document.getElementById('hPwd').value==='heroes2025'){localStorage.setItem('hauth','1');document.getElementById('hLogin').style.display='none';document.getElementById('hDash').style.display='block';hRender()}else alert('Wrong')" style="width:100%;background:#facc15;color:#000;padding:10px;border:0;border-radius:9px;font-weight:900;margin-top:6px">Login</button></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><h3 style="color:#C9A227">Admin • All Types</h3><button onclick="this.closest('#hAdminModal').classList.remove('open')" style="background:#222;color:#fff;border:0;padding:6px 12px;border-radius:8px">✕</button></div>
+<div id="hLogin"><p style="color:#888;font-size:12px">Password: heroes2025</p><input id="hPwd" type="password" placeholder="Password"><button onclick="if(document.getElementById('hPwd').value==='heroes2025'){localStorage.setItem('hauth','1');document.getElementById('hLogin').style.display='none';document.getElementById('hDash').style.display='block';hRenderList()}else alert('Wrong')" style="width:100%;background:#C9A227;color:#000;padding:10px;border:0;border-radius:9px;font-weight:900;margin-top:6px">Login</button></div>
 <div id="hDash" style="display:none">
-<p style="color:#22c55e;font-size:11px;margin:6px 0">✅ NEW: Pick files directly from phone — no links!</p>
-<select id="hType" onchange="hOnTypeChange()"><option value="announcement">📢 Announcement</option><option value="sermon">📖 Sermon</option><option value="book">📚 Book</option><option value="video">🎥 Video</option><option value="photo">📸 Photo</option><option value="event">📅 Event</option><option value="song">🎵 Song</option></select>
-<input id="hTitle" placeholder="Title *">
-<textarea id="hDesc" rows="2" placeholder="Description / Details"></textarea>
-
-<label class="hFileLabel" for="hFileInput">
-📁 TAP TO CHOOSE FILE FROM PHONE
-<small id="hFileName">Supports: JPG, PNG, PDF, MP3, MP4, any file</small>
-</label>
-<input type="file" id="hFileInput" accept="image/*,audio/*,video/*,.pdf,.doc,.docx" style="display:none" onchange="hHandleFile(this)">
-
+<p style="color:#22c55e;font-size:11px;margin:6px 0">✅ Pick files directly — works for ALL types!</p>
+<select id="hType" onchange="hOnType()"><option value="photo">📸 Photo - Church Photos</option><option value="book">📚 Book - PDF / Cover</option><option value="video">🎥 Video - YouTube or MP4</option><option value="song">🎵 Song - MP3 Audio</option><option value="sermon">📖 Sermon - Text + Image</option><option value="event">📅 Event - Poster + Details</option><option value="announcement">📢 Announcement - News</option></select>
+<input id="hTitle" placeholder="Title * e.g. Sunday Service">
+<textarea id="hDesc" rows="2" placeholder="Description / Verse / Details"></textarea>
+<label class="hFileLabel" for="hFileInput"><span id="hFileLabelText">📁 TAP TO CHOOSE FILE FROM PHONE</span><small id="hFileName">Photo: JPG/PNG • Book: PDF • Song: MP3 • Video: MP4</small></label>
+<input type="file" id="hFileInput" accept="image/*,audio/*,video/*,.pdf" style="display:none" onchange="hHandleFile(this)">
 <div id="hPreview" class="hPreview"></div>
+<input id="hImg" type="hidden"><input id="hVideo" type="hidden">
+<input id="hDate" type="date">
+<button onclick="hAdd()" style="width:100%;background:#C9A227;color:#000;padding:13px;border:0;border-radius:12px;font-weight:900;margin-top:8px;font-size:15px">+ SAVE TO WEBSITE</button>
+<button onclick="hExport()" style="width:100%;background:#22c55e;color:#000;padding:11px;border:0;border-radius:10px;font-weight:800;margin-top:8px">Export data.json (for all visitors)</button>
+<div style="background:#0f0f0f;border:1px dashed #333;padding:8px;border-radius:10px;margin-top:8px"><p style="font-size:11px;color:#888">💾 Saves on this phone instantly.<br>For EVERYONE: 1. Export data.json 2. Upload data.json to GitHub root 3. Also upload original files to public/gallery/ (for photos) or repo root (for books/songs)</p></div>
+<div id="hList" style="max-height:220px;overflow:auto;margin-top:12px;border-top:1px solid #222;padding-top:8px"></div>
+</div>
+</div>
+</div>
 
-<input id="hImg" placeholder="Image will appear here (auto)" style="display:none">
-<input id="hVideo" placeholder="File link will appear here (auto)" style="display:none">
-<input id="hDate" type="date" style="margin-top:8px">
-
-<button onclick="hAdd()" style="width:100%;background:#facc15;color:#000;padding:12px;border:0;border-radius:10px;font-weight:900;margin-top:8px">+ SAVE TO WEBSITE</button>
-<button onclick="hExport()" style="width:100%;background:#22c55e;color:#000;padding:10px;border:0;border-radius:9px;font-weight:800;margin-top:6px">Export data.json (for all visitors)</button>
-<div style="background:#0f0f0f;border:1px dashed #333;padding:8px;border-radius:10px;margin-top:8px"><p style="font-size:11px;color:#888">💾 Your files are saved on this phone. To show to EVERYONE:<br>1. Export data.json<br>2. Upload data.json to GitHub root<br>3. ALSO upload original files to GitHub via Add file > Upload files</p></div>
-<div id="hList" style="max-height:200px;overflow:auto;margin-top:12px;border-top:1px solid #222;padding-top:8px"></div>
-</div>
-</div>
-</div>
 <script>
 var hCurrentFileData='';
-function hOnTypeChange(){
+function hOnType(){
  var t=document.getElementById('hType').value;
  var fi=document.getElementById('hFileInput');
- if(t==='photo') fi.accept='image/*';
- else if(t==='song') fi.accept='audio/*,.mp3';
- else if(t==='video') fi.accept='video/*,.mp4';
- else if(t==='book') fi.accept='.pdf,image/*';
- else fi.accept='image/*,audio/*,video/*,.pdf';
+ var label=document.getElementById('hFileLabelText');
+ if(t==='photo'){fi.accept='image/*';label.textContent='📸 TAP TO CHOOSE PHOTO (JPG/PNG)';}
+ else if(t==='book'){fi.accept='.pdf,image/*';label.textContent='📚 TAP TO CHOOSE BOOK (PDF or Cover Image)';}
+ else if(t==='video'){fi.accept='video/*,.mp4';label.textContent='🎥 TAP TO CHOOSE VIDEO (MP4) or paste YouTube link below';}
+ else if(t==='song'){fi.accept='audio/*,.mp3';label.textContent='🎵 TAP TO CHOOSE SONG (MP3)';}
+ else if(t==='sermon'){fi.accept='image/*';label.textContent='📖 TAP TO CHOOSE SERMON IMAGE (Optional)';}
+ else if(t==='event'){fi.accept='image/*';label.textContent='📅 TAP TO CHOOSE EVENT POSTER';}
+ else {fi.accept='image/*,.pdf';label.textContent='📁 TAP TO CHOOSE FILE';}
 }
 function hHandleFile(input){
- var file=input.files[0];
- if(!file) return;
+ var file=input.files[0]; if(!file) return;
  document.getElementById('hFileName').textContent=file.name+' ('+Math.round(file.size/1024)+' KB)';
  var reader=new FileReader();
  reader.onload=function(e){
@@ -115,82 +255,51 @@ function hHandleFile(input){
    preview.style.display='block';
    if(file.type.startsWith('image/')){
      preview.innerHTML='<img src="'+hCurrentFileData+'"><p style="color:#22c55e;font-size:11px;padding:6px">✅ Image ready!</p>';
-     document.getElementById('hImg').value=hCurrentFileData;
-     document.getElementById('hVideo').value='';
-     if(!document.getElementById('hTitle').value) document.getElementById('hTitle').value=file.name.replace(/\.[^/.]+$/,'');
+     document.getElementById('hImg').value=hCurrentFileData; document.getElementById('hVideo').value='';
    }else if(file.type.startsWith('audio/')){
      preview.innerHTML='<div style="padding:20px;text-align:center"><span style="font-size:40px">🎵</span><p style="color:#fff">'+file.name+'</p><audio controls src="'+hCurrentFileData+'" style="width:100%;margin-top:8px"></audio><p style="color:#22c55e;font-size:11px">✅ Audio ready!</p></div>';
-     document.getElementById('hVideo').value=hCurrentFileData;
-     document.getElementById('hImg').value='';
+     document.getElementById('hVideo').value=hCurrentFileData; document.getElementById('hImg').value='';
    }else if(file.type.startsWith('video/')){
-     preview.innerHTML='<div style="padding:10px"><video controls src="'+hCurrentFileData+'" style="width:100%;border-radius:8px;max-height:120px"></video><p style="color:#22c55e;font-size:11px">✅ Video ready!</p></div>';
-     document.getElementById('hVideo').value=hCurrentFileData;
+     preview.innerHTML='<div style="padding:10px"><video controls src="'+hCurrentFileData+'" style="width:100%;border-radius:8px;max-height:140px"></video><p style="color:#22c55e;font-size:11px">✅ Video ready!</p></div>';
+     document.getElementById('hVideo').value=hCurrentFileData; document.getElementById('hImg').value='';
    }else{
-     // PDF or other
-     preview.innerHTML='<div style="padding:20px;text-align:center"><span style="font-size:40px">📚</span><p style="color:#fff">'+file.name+'</p><p style="color:#22c55e;font-size:11px">✅ File ready! ('+file.type+')</p><a href="'+hCurrentFileData+'" target="_blank" style="color:#facc15;font-size:12px">Preview file</a></div>';
-     document.getElementById('hVideo').value=hCurrentFileData;
-     document.getElementById('hImg').value='';
-     if(file.type.includes('pdf') && !document.getElementById('hImg').value){
-       // try to keep as video field for download
-     }
+     preview.innerHTML='<div style="padding:20px;text-align:center"><span style="font-size:40px">📚</span><p style="color:#fff">'+file.name+'</p><p style="color:#22c55e;font-size:11px">✅ File ready!</p></div>';
+     document.getElementById('hVideo').value=hCurrentFileData; document.getElementById('hImg').value='';
    }
+   if(!document.getElementById('hTitle').value) document.getElementById('hTitle').value=file.name.replace(/\.[^/.]+$/,'');
  };
- if(file.size>5*1024*1024){
-   alert('File too big! >5MB will make website slow. Please use smaller file or compress. For large files, upload to GitHub directly.');
-   return;
- }
+ if(file.size>8*1024*1024){alert('File >8MB too big! Compress or upload directly to GitHub.'); return;}
  reader.readAsDataURL(file);
 }
-function hGet(){try{return JSON.parse(localStorage.getItem('hdata')||'[]')}catch(e){return[]}}
-function hSet(d){localStorage.setItem('hdata',JSON.stringify(d));}
+function hGetLocal(){try{return JSON.parse(localStorage.getItem('hdata')||'[]')}catch(e){return[]}}
+function hSetLocal(d){localStorage.setItem('hdata',JSON.stringify(d))}
 function hAdd(){
- var t=document.getElementById('hTitle').value.trim();
- if(!t) return alert('Title required');
- var item={
-   id:Date.now(),
-   type:document.getElementById('hType').value,
-   title:t,
-   desc:document.getElementById('hDesc').value.trim(),
-   img:document.getElementById('hImg').value.trim(),
-   video:document.getElementById('hVideo').value.trim(),
-   date:document.getElementById('hDate').value||new Date().toISOString().split('T')[0]
- };
- // if file data was loaded and no img/video yet, use it
- if(hCurrentFileData){
-   if(!item.img && !item.video){
-     if(item.type==='photo' || hCurrentFileData.startsWith('data:image')) item.img=hCurrentFileData;
-     else item.video=hCurrentFileData;
-   }
+ var t=document.getElementById('hTitle').value.trim(); if(!t) return alert('Title required');
+ var item={id:Date.now(),type:document.getElementById('hType').value,title:t,desc:document.getElementById('hDesc').value.trim(),img:document.getElementById('hImg').value.trim(),video:document.getElementById('hVideo').value.trim(),date:document.getElementById('hDate').value||new Date().toISOString().split('T')[0]};
+ if(hCurrentFileData && !item.img && !item.video){
+   if(hCurrentFileData.startsWith('data:image')) item.img=hCurrentFileData; else item.video=hCurrentFileData;
  }
- var d=hGet();d.unshift(item);hSet(d);hRender();
- document.getElementById('hTitle').value='';document.getElementById('hDesc').value='';document.getElementById('hFileName').textContent='Supports: JPG, PNG, PDF, MP3, MP4, any file';document.getElementById('hPreview').style.display='none';document.getElementById('hPreview').innerHTML='';hCurrentFileData='';document.getElementById('hFileInput').value='';document.getElementById('hImg').value='';document.getElementById('hVideo').value='';
- alert('✅ Saved! Check main page — it appears instantly on YOUR phone. Export data.json to show to everyone.');
- if(window.renderPublic) renderPublic();
+ var d=hGetLocal(); d.unshift(item); hSetLocal(d); hRenderList(); hRenderAll();
+ document.getElementById('hTitle').value='';document.getElementById('hDesc').value='';document.getElementById('hFileName').textContent='Photo: JPG/PNG • Book: PDF • Song: MP3 • Video: MP4';document.getElementById('hPreview').style.display='none';document.getElementById('hPreview').innerHTML='';hCurrentFileData='';document.getElementById('hFileInput').value='';document.getElementById('hImg').value='';document.getElementById('hVideo').value='';
+ alert('✅ Saved! Check main page Latest section.');
 }
-function hRender(){
- var d=hGet();
- var list=document.getElementById('hList');
- if(!d.length){list.innerHTML='<p style="color:#555;text-align:center;padding:10px">No items yet</p>';return}
- list.innerHTML=d.map(function(x){
-   var thumb=x.img?'<img src="'+x.img+'" style="width:36px;height:36px;border-radius:6px;object-fit:cover">':(x.type==='song'?'🎵':x.type==='book'?'📚':x.type==='video'?'🎥':'📄');
-   return '<div style="display:flex;gap:8px;align-items:center;padding:8px;border-bottom:1px solid #222"><div>'+thumb+'</div><div style="flex:1"><b style="font-size:13px;color:#fff">'+x.title+'</b><br><small style="color:#666">'+x.type+' • '+x.date+'</small></div><button onclick="var a=hGet().filter(function(y){return y.id!=='+x.id+'});hSet(a);hRender();if(window.renderPublic)renderPublic()" style="background:#7f1d1d;color:#fff;border:0;padding:5px 10px;border-radius:6px">Del</button></div>';
+function hRenderList(){
+ var d=hGetLocal(); var list=document.getElementById('hList');
+ if(!d.length){list.innerHTML='<p style="color:#555;text-align:center;padding:10px">No items yet — add your first!</p>';return}
+ list.innerHTML=d.map(x=>{
+   var thumb=x.img?'<img src="'+x.img+'" style="width:36px;height:36px;border-radius:6px;object-fit:cover">':(x.type==='song'?'🎵':x.type==='book'?'📚':x.type==='video'?'🎥':x.type==='photo'?'📸':'📄');
+   return '<div style="display:flex;gap:8px;align-items:center;padding:8px;border-bottom:1px solid #222"><div>'+thumb+'</div><div style="flex:1"><b style="font-size:13px;color:#fff">'+x.title+'</b><br><small style="color:#666">'+x.type+' • '+x.date+'</small></div><button onclick="var a=hGetLocal().filter(y=>y.id!=='+x.id+');hSetLocal(a);hRenderList();hRenderAll()" style="background:#7f1d1d;color:#fff;border:0;padding:5px 10px;border-radius:6px">Del</button></div>';
  }).join('');
 }
 function hExport(){
  var data=localStorage.getItem('hdata')||'[]';
- // warn if big
- if(data.length>2*1024*1024) alert('⚠️ data.json is large ('+Math.round(data.length/1024/1024)+' MB) because it contains files. For big files, better upload files to GitHub separately and use links.');
- var blob=new Blob([data],{type:'application/json'});
- var url=URL.createObjectURL(blob);
- var a=document.createElement('a');a.href=url;a.download='data.json';a.click();
+ if(data.length>3*1024*1024) alert('⚠️ data.json is large ('+Math.round(data.length/1024/1024)+' MB). For big files upload them to GitHub separately and use links instead.');
+ var blob=new Blob([data],{type:'application/json'}); var url=URL.createObjectURL(blob); var a=document.createElement('a');a.href=url;a.download='data.json';a.click();
 }
-if(localStorage.getItem('hauth')){
- document.getElementById('hLogin').style.display='none';
- document.getElementById('hDash').style.display='block';
- hRender();
-}
+if(localStorage.getItem('hauth')){document.getElementById('hLogin').style.display='none';document.getElementById('hDash').style.display='block';hRenderList();}
 </script>
-<!-- END ADMIN INJECTION V2 -->
+<!-- END COMPLETE CMS -->
+
 
 </body>
 </html>
