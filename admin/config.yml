@@ -2,92 +2,84 @@ backend:
   name: github
   repo: nelsonphiri50-lang/Heroes-assembly-ministrie
   branch: main
+  auth_type: pkce
+  app_id: Ov23lijAg53Fbbu40NYz
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "announcements"
+    - name: "announcements"
     label: "📢 Announcements"
     folder: "announcements"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Cover Image", name: "cover", widget: "image", required: false}
-      - {label: "Details", name: "body", widget: "markdown"}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Date", name: "date", widget: "datetime"}
+            - {label: "Cover Image", name: "cover", widget: "image", required: false}
+            - {label: "Details", name: "body", widget: "markdown"}
 
-  - name: "sermons"
+    - name: "sermons"
     label: "🎤 Sermons"
     folder: "sermons"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date Preached", name: "date", widget: "datetime"}
-      - {label: "Preacher", name: "preacher", widget: "string", default: "Apostle Nelson Azekah Phiri"}
-      - {label: "Cover Image", name: "cover", widget: "image", required: false}
-      - {label: "YouTube Video Link", name: "youtube", widget: "string", required: false, hint: "Paste YouTube link"}
-      - {label: "Audio File", name: "audio", widget: "file", required: false}
-      - {label: "Notes", name: "body", widget: "markdown"}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Date", name: "date", widget: "datetime"}
+            - {label: "Preacher", name: "preacher", widget: "string", default: "Apostle Nelson Azekah Phiri"}
+            - {label: "YouTube Video Link", name: "youtube", widget: "string", required: false}
+            - {label: "Notes", name: "body", widget: "markdown"}
 
-  - name: "books"
+    - name: "books"
     label: "📚 Books"
     folder: "books"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Author", name: "author", widget: "string", default: "Apostle Nelson Azekah Phiri"}
-      - {label: "Cover Image", name: "cover", widget: "image"}
-      - {label: "PDF File", name: "file", widget: "file", required: false}
-      - {label: "Description", name: "body", widget: "markdown"}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Cover Image", name: "cover", widget: "image"}
+            - {label: "PDF File", name: "file", widget: "file", required: false}
+            - {label: "Description", name: "body", widget: "markdown"}
 
-  - name: "songs"
+    - name: "songs"
     label: "🎵 Songs"
     folder: "songs"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Artist", name: "artist", widget: "string"}
-      - {label: "Audio File (MP3)", name: "audio", widget: "file"}
-      - {label: "Cover Art", name: "cover", widget: "image", required: false}
-      - {label: "Lyrics / Description", name: "body", widget: "markdown", required: false}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "Artist", name: "artist", widget: "string"}
+            - {label: "Audio File (MP3)", name: "audio", widget: "file"}
+            - {label: "Lyrics", name: "body", widget: "markdown", required: false}
 
-  - name: "videos"
+    - name: "videos"
     label: "🎬 Videos"
     folder: "videos"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "YouTube Link", name: "youtube", widget: "string", hint: "Paste YouTube URL - best for ministry videos"}
-      - {label: "OR Upload Video File", name: "video_file", widget: "file", required: false}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image", required: false}
-      - {label: "Description", name: "body", widget: "markdown"}
+            - {label: "Title", name: "title", widget: "string"}
+            - {label: "YouTube Link", name: "youtube", widget: "string"}
+            - {label: "Description", name: "body", widget: "markdown"}
 
-  - name: "photos"
-    label: "📸 Photos / Gallery"
+    - name: "photos"
+    label: "📸 Photos"
     folder: "photos"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Title / Event Name", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Photos", name: "gallery", widget: "list", field: {label: "Photo", name: "image", widget: "image"}}
-      - {label: "Description", name: "body", widget: "markdown", required: false}
+            - {label: "Event Name", name: "title", widget: "string"}
+            - {label: "Photos", name: "gallery", widget: "list", field: {label: "Photo", name: "image", widget: "image"}}
 
-  - name: "live"
+    - name: "live"
     label: "🔴 Live Broadcast"
     folder: "live"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Live Title", name: "title", widget: "string"}
-      - {label: "Is Live Now?", name: "is_live", widget: "boolean", default: false}
-      - {label: "YouTube Live Link / Facebook Live Link", name: "live_url", widget: "string", hint: "Paste YouTube Live or Facebook Live URL"}
-      - {label: "Schedule Date", name: "date", widget: "datetime"}
-      - {label: "Message", name: "body", widget: "markdown", required: false}
+            - {label: "Live Title", name: "title", widget: "string"}
+            - {label: "Is Live Now?", name: "is_live", widget: "boolean", default: false}
+            - {label: "Live Link (YouTube/Facebook)", name: "live_url", widget: "string"}
+            - {label: "Schedule", name: "date", widget: "datetime"}
