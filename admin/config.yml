@@ -9,77 +9,74 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-    - name: "announcements"
-    label: "📢 Announcements"
+  - name: "announcements"
+    label: "Announcements"
     folder: "announcements"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "Date", name: "date", widget: "datetime"}
-            - {label: "Cover Image", name: "cover", widget: "image", required: false}
-            - {label: "Details", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Details", name: "body", widget: "markdown"}
 
-    - name: "sermons"
-    label: "🎤 Sermons"
+  - name: "sermons"
+    label: "Sermons"
     folder: "sermons"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "Date", name: "date", widget: "datetime"}
-            - {label: "Preacher", name: "preacher", widget: "string", default: "Apostle Nelson Azekah Phiri"}
-            - {label: "YouTube Video Link", name: "youtube", widget: "string", required: false}
-            - {label: "Notes", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "YouTube Link", name: "youtube", widget: "string", required: false}
+      - {label: "Notes", name: "body", widget: "markdown"}
 
-    - name: "books"
-    label: "📚 Books"
+  - name: "books"
+    label: "Books"
     folder: "books"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "Cover Image", name: "cover", widget: "image"}
-            - {label: "PDF File", name: "file", widget: "file", required: false}
-            - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Cover", name: "cover", widget: "image"}
+      - {label: "PDF", name: "file", widget: "file", required: false}
+      - {label: "Description", name: "body", widget: "markdown"}
 
-    - name: "songs"
-    label: "🎵 Songs"
+  - name: "songs"
+    label: "Songs"
     folder: "songs"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "Artist", name: "artist", widget: "string"}
-            - {label: "Audio File (MP3)", name: "audio", widget: "file"}
-            - {label: "Lyrics", name: "body", widget: "markdown", required: false}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Audio", name: "audio", widget: "file"}
+      - {label: "Lyrics", name: "body", widget: "markdown", required: false}
 
-    - name: "videos"
-    label: "🎬 Videos"
+  - name: "videos"
+    label: "Videos"
     folder: "videos"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Title", name: "title", widget: "string"}
-            - {label: "YouTube Link", name: "youtube", widget: "string"}
-            - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "YouTube Link", name: "youtube", widget: "string"}
+      - {label: "Description", name: "body", widget: "markdown"}
 
-    - name: "photos"
-    label: "📸 Photos"
+  - name: "photos"
+    label: "Photos"
     folder: "photos"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Event Name", name: "title", widget: "string"}
-            - {label: "Photos", name: "gallery", widget: "list", field: {label: "Photo", name: "image", widget: "image"}}
+      - {label: "Event", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
 
-    - name: "live"
-    label: "🔴 Live Broadcast"
+  - name: "live"
+    label: "Live Broadcast"
     folder: "live"
     create: true
     slug: "{{slug}}"
     fields:
-            - {label: "Live Title", name: "title", widget: "string"}
-            - {label: "Is Live Now?", name: "is_live", widget: "boolean", default: false}
-            - {label: "Live Link (YouTube/Facebook)", name: "live_url", widget: "string"}
-            - {label: "Schedule", name: "date", widget: "datetime"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Live Link", name: "live_url", widget: "string"}
+      - {label: "Is Live Now", name: "is_live", widget: "boolean", default: false}
+      
